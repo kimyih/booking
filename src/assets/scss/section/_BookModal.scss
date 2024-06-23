@@ -1,0 +1,132 @@
+ /* 기존 스타일 */
+ .modal-content {
+    padding: 20px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 730px;
+    max-height: 900px;
+
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .modal-image {
+        width: 50%;
+        max-height: 600px;
+        height: 600px;
+    }
+}
+
+.modal-image img {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 20px;
+    height: 600px;
+    object-fit: contain;
+}
+
+.modal-details {
+    width: 50%;
+    flex: 1;
+    margin-left: 20px;
+    position: relative;
+}
+
+.modal-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.modal-details p {
+    margin: 5px 0;
+}
+
+.modal-price {
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.discounted-price {
+    color: red;
+    font-weight: bold;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.app-button {
+    flex: 1;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+}
+
+.close-button {
+    background-color: #ccc;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* React Modal overrides */
+.ReactModal__Overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+    /* 배경 오버레이 색상 설정 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.ReactModal__Content {
+    position: relative;
+    max-width: 1100px;
+    width: 1100px;
+    max-height: 90vh;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    outline: none;
+
+}
