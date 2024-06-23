@@ -57,4 +57,22 @@ YES24, 알라딘, 교보문고에서 제공하는 문제집의 최신 랭킹을 
 이를 통해 사용자는 보다 효율적으로 시험 준비를 할 수 있으며, 서점들은 더 많은 판매 기회를 얻게 됩니다.    
 또한, 사용자 리뷰를 통해 더 나은 품질의 문제집이 제작되고 유통될 수 있는 환경이 조성됩니다.    
     
-"Booking"은 국가 자격증 시험 준비를 위한 모든 문제집 정보를 하나의 플랫폼에서 제공하여, 사용자들이 최고의 선택을 할 수 있도록 지원하는 것을 목표로 합니다.    
+"Booking"은 국가 자격증 시험 준비를 위한 모든 문제집 정보를 하나의 플랫폼에서 제공하여, 사용자들이 최고의 선택을 할 수 있도록 지원하는 것을 목표로 합니다. 
+
+<br>
+<br>
+
+## 설치한 라이브러리 
+
+```
+- react 설치 `npx create-react-app 폴더이름` : 폴더를 생략하고 싶으면 app . 으로 설치
+- react-router-dom 설치 `npm install react-router-dom` : 주소 설정을 위한 라이브러리
+- axios 설치 `npm install axios` : API라이브러리
+- react icon 설치 `npm install react-icons` : 리액트에 필요한 아이콘
+- react-player 설치 `npm install react-player` : 유튜브 영상 재생
+- sass 설치 `npm install sass` : CSS 라이브러리
+- react-helmet-async 설치 `npm install react-helmet-async` : SEO
+- swiper 설치 `npm install swiper` : 이미지 슬라이드
+- flickity 설치 `npm install flickity` : 반응형 및 터치 지원이 가능한 슬라이더  
+
+```
