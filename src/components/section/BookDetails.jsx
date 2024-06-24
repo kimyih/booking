@@ -103,14 +103,13 @@ const BookDetails = () => {
                             books.map((book, index) => (
                                 <li key={index} className="book-item2">
                                     <span className="book-rank">{index + 1}</span>
-                                    <img src={book.imageURL} alt={book.title} className="book-image" onClick={() => handleBookClick(book)} />
+                                    <img src={book.imageURL} alt={book.title} className="book-image"/>
                                     <div className='book-item2-text'>
-                                        <h3 onClick={() => handleBookClick(book)}>{book.title}</h3>
+                                        <h3>{book.title}</h3>
                                         <p>{book.author}</p>
                                         <p className='price_text'>₩ {book.price}</p>
                                     </div>
                                     <div className='book-item2-info'>
-                                        <button className='book2-detail' onClick={() => handleBookClick(book)}>상세보기</button>
                                         <button className='book2-buy' onClick={() => handleBuyClick(book)}>바로구매</button>
                                     </div>
                                 </li>

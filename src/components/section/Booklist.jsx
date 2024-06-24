@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import ButtonGrid from '../section/ButtonGrid';
-import BookModal from './BookModal'; // BookModal 컴포넌트 import
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Swiper 스타일 import
@@ -16,10 +15,8 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
     const [kyoboBooks, setKyoboBooks] = useState([]);
     const [yes24Books, setYes24Books] = useState([]);
     const [aladinBooks, setAladinBooks] = useState([]);
-    const [fetchDate, setFetchDate] = useState(new Date('2024-06-16')); // 시작 날짜를 6월 16일로 설정
+    const [fetchDate, setFetchDate] = useState(new Date()); // 오늘 날짜로 설정
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedBook, setSelectedBook] = useState(null); // 선택된 책 정보 상태
-    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태
     const formattedDate = fetchDate.toISOString().slice(0, 10); // YYYY-MM-DD 형식으로 변환
 
     useEffect(() => {
@@ -72,18 +69,6 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
         setSearchTerm(searchTerm);
     };
 
-    // 책 아이템 클릭 시 모달 열기
-    const handleBookClick = (book) => {
-        setSelectedBook(book);
-        setIsModalOpen(true);
-    };
-
-    // 모달 닫기
-    const closeModal = () => {
-        setIsModalOpen(false);
-        setSelectedBook(null);
-    };
-
     return (
         <div className="Main__Home">
             <div className="Main__main">
@@ -95,7 +80,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                             <h2>교보문고</h2>
                             {filterBooks(kyoboBooks.slice(0, 3)).map((book, index) => (
                                 <ul key={index}>
-                                    <li className="book-rank" onClick={() => handleBookClick(book)}>
+                                    <li className="book-rank">
                                         <img src={book.imageURL} alt={book.title} className="rank-image" />
                                         <div className="book-num">{index + 1}</div>
                                         <div className="rank-text">
@@ -110,7 +95,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                             <h2>Yes24</h2>
                             {filterBooks(yes24Books.slice(0, 3)).map((book, index) => (
                                 <ul key={index}>
-                                    <li className="book-rank" onClick={() => handleBookClick(book)}>
+                                    <li className="book-rank">
                                         <img src={book.imageURL} alt={book.title} className="rank-image" />
                                         <div className="book-num">{index + 1}</div>
                                         <div className="rank-text">
@@ -124,7 +109,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                             <h2>알라딘</h2>
                             {filterBooks(aladinBooks.slice(0, 3)).map((book, index) => (
                                 <ul key={index}>
-                                    <li className="book-rank" onClick={() => handleBookClick(book)}>
+                                    <li className="book-rank">
                                         <img src={book.imageURL} alt={book.title} className="rank-image" />
                                         <div className="book-num">{index + 1}</div>
                                         <div className="rank-text">
@@ -147,7 +132,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         >
                             {filterBooks(kyoboBooks).map((book, index) => (
                                 <SwiperSlide key={index}>
-                                    <li className="book-item" onClick={() => handleBookClick(book)}>
+                                    <li className="book-item">
                                         <img src={book.imageURL} alt={book.title} className="book-image" />
                                         <h3>{book.title}</h3>
                                         <p>{book.author}</p>
@@ -169,7 +154,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         >
                             {filterBooks(yes24Books).map((book, index) => (
                                 <SwiperSlide key={index}>
-                                    <li className="book-item" onClick={() => handleBookClick(book)}>
+                                    <li className="book-item">
                                         <img src={book.imageURL} alt={book.title} className="book-image" />
                                         <h3>{book.title}</h3>
                                         <p>{book.author}</p>
@@ -191,7 +176,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         >
                             {filterBooks(aladinBooks).map((book, index) => (
                                 <SwiperSlide key={index}>
-                                    <li className="book-item" onClick={() => handleBookClick(book)} >
+                                    <li className="book-item">
                                         <img src={book.imageURL} alt={book.title} className="book-image" />
                                         <h3 title={book.title}>{book.title}</h3>
                                         <p>{book.author}</p>
@@ -202,8 +187,6 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                     </div>
                 </div>
             </div>
-            {/* 모달 창 */}
-            <BookModal isOpen={isModalOpen} onRequestClose={closeModal} book={selectedBook} />
         </div>
     );
 };
