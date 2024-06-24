@@ -94,5 +94,4 @@ YES24, 알라딘, 교보문고에서 제공하는 문제집의 최신 랭킹을 
 - react-helmet-async 설치 `npm install react-helmet-async` : SEO
 - swiper 설치 `npm install swiper` : 이미지 슬라이드
 - flickity 설치 `npm install flickity` : 반응형 및 터치 지원이 가능한 슬라이더  
-
 ```
